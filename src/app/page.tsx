@@ -1,103 +1,95 @@
+"use client"
+
+import { ArrowBigDownDash, Mail, Phone } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-export default function Home() {
+export default function IntroductionPage() {
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-6xl w-full gap-8 md:gap-16">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* Left Side */}
+        <motion.div
+          className="flex flex-col gap-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+
+          <h1 className="text-5xl font-extrabold text-gray-900 leading-tight">
+            My name is {" "}
+            <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+              Yuri
+            </span>
+            ...
+          </h1>
+
+          <motion.a
+            href="/home"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#141313] px-6 py-3 text-white text-base font-semibold hover:bg-[#272727] transition-colors w-fit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            Let&apos;s talk with me
+            <ArrowBigDownDash
+              className="w-6 h-6"
+              style={{
+                stroke: "url(#gradient)"
+              }}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+            <svg width="0" height="0">
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop stopColor="#ec4899" offset="0%" />
+                  <stop stopColor="#8b5cf6" offset="50%" />
+                  <stop stopColor="#3b82f6" offset="100%" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </motion.a>
+
+          {/* Subtitle */}
+          <p className="text-lg text-gray-600 max-w-md">
+            Full Stack Developer based in {""}
+            <span className="font-medium text-gray-800">Philippines</span>.
+            Passionate about creating interactive and modern web experiences
+          </p>
+
+          {/* Contact Information */}
+          <div className="flex flex-row items-center justify-between gap-6 w-full max-w-md">
+            <div className="flex items-center gap-2">
+              <Phone className="w-5 h-5 text-pink-500" />
+              <p className="text-gray-700 font-medium">+63 929 105 1576</p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Mail className="w-5 h-5 text-blue-500" />
+              <p className="text-gray-700 font-medium">yuri90378@gmail.com</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Side */}
+        <motion.div
+          className="flex justify-center md:justify-start md:pl-8"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Image
+              src="/picture.jpg"
+              alt="Yuri's picture"
+              width={300}
+              height={300}
+              className="rounded-full border-4 border-white shadow-2xl sm:w-[350px] sm:h-[350px] hover:scale-105 transition-transform duration-300"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
