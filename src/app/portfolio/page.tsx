@@ -1,6 +1,6 @@
 "use client"
 
-import {Download, Infinity, Mail, MapPin, Phone} from "lucide-react";
+import {Download, Mail, MapPin, Phone} from "lucide-react";
 import Image from "next/image";
 import { BsPerson } from "react-icons/bs";
 import { motion } from "framer-motion";

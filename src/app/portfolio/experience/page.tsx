@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import {ArrowBigDownIcon} from "lucide-react";
-import SkillSection from "../../../../components/Skills";
 
 export default function JourneyPage() {
     return (
