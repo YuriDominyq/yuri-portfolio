@@ -58,8 +58,8 @@ export default function IntroductionPage() {
                     </Link>
 
                     {/* Subtitle */}
-                    <p className="text-lg text-gray-600 max-w-md">
-                        Full Stack Developer based in {""}
+                    <p className="text-lg text-gray-600 max-w-md text-justify">
+                        Student Full Stack Developer based in {""}
                         <span className="font-medium text-gray-800">Philippines</span>.
                         Passionate about creating interactive and modern web experiences
                     </p>

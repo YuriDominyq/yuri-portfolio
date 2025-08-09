@@ -1,8 +1,7 @@
 "use client"
 
-import { Download, Mail, MapPin, Phone } from "lucide-react";
+import {Download, Infinity, Mail, MapPin, Phone} from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { BsPerson } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
@@ -41,16 +40,30 @@ export default function HomePage() {
                     <h3
                         className="text-lg md:text-xl font-semibold text-indigo-700 tracking-wide"
                     >
-                        Full Stack Developer based in Philippines
+                        Student Full Stack Developer based in Philippines
                     </h3>
 
-                    <Link
-                        href="/"
-                        className="items-center inline-flex gap-2 text-black rounded-xl font-semibold hover:underline transition duration-300 cursor-pointer"
+                    <motion.a
+                        href="/resume.pdf"
+                        download
+                        className="inline-flex items-center gap-2 text-black rounded-xl font-semibold hover:underline transition duration-300 cursor-pointer"
+                        whileHover={{ scale: 1.05}}
+                        whileTap={{ scale: 0.95, rotate: -3}}
                     >
                         Download CV
-                        <Download className="w-5 h-5" />
-                    </Link>
+                        <motion.div
+                            initial={{ y: 0}}
+                            animate={{ y: [0, -4, 0]}}
+                            transition={{
+                                duration: 0.6,
+                                repeat: Number.POSITIVE_INFINITY,
+                                repeatDelay: 1,
+                                ease: "easeInOut"
+                            }}
+                        >
+                            <Download className="w-5 h-5" />
+                        </motion.div>
+                    </motion.a>
                 </motion.div>
 
 
@@ -84,14 +97,14 @@ export default function HomePage() {
                     <section className="hover:text-indigo-600 transition-colors cursor-pointer">
                         <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-transparent bg-clip-text">Student Experience</h2>
 
-                        <p className="text-gray-700">
-                            Hello there! My name is Yuri Dominyq Santos, I&apos;m a full stack developer, and I&apos;m very passionate and dedicated to my work.
+                        <p className="text-gray-700 text-justify">
+                            Hi I&apos;m Yuri Dominyq Santos - a student full stack developer dedicated to my work and passionate to deliver high-quality web experiences and high impact solutions
                         </p>
                     </section>
 
                     <section className="hover:text-indigo-600 transition-colors cursor-pointer">
                         <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-transparent bg-clip-text">Good Insights</h2>
-                        <p className="text-gray-700">I acquired the skills and knowledge necessary to make your project a success</p>
+                        <p className="text-gray-700 text-justify">As a student, I&apos;m building the skills and knowledge to turn ideas into impactful and successful</p>
                     </section>
 
                     <div className="flex item-start gap-4 rounded-xl p-6 mb-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 shadow-lg text-white border border-transparent animate-gradient">
