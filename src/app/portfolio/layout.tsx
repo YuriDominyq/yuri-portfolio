@@ -1,14 +1,21 @@
+"use client"
+
 import Sidebar from "../../../components/Sidebar";
+import {ReactNode, useState} from "react";
 
 export default function LayoutPage({
     children,
 }: {
-    children: React.ReactNode;
+    children: ReactNode;
 }) {
+    const [isExpanded, setIsExpanded] = useState(false)
     return (
         <div className="flex min-h-screen">
-            <Sidebar />
-            <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">
+            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+            <main
+                className="flex-1 bg-gray-100 overflow-y-auto transition-margin duration-300"
+                style={{ marginLeft: isExpanded ? 240 : 83}}
+            >
                 {children}
             </main>
         </div>

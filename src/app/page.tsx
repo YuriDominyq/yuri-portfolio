@@ -21,7 +21,7 @@ export default function IntroductionPage() {
 
                     <h1 className="text-6xl font-extrabold text-gray-900 leading-tight">
                         My name is {" "}
-                        <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-amber-400 via-rose-400 to-violet-400 bg-clip-text text-transparent">
                             Yuri Dominyq
                         </span>
                         ...
@@ -48,9 +48,9 @@ export default function IntroductionPage() {
                             <svg width="0" height="0">
                                 <defs>
                                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop stopColor="#ec4899" offset="0%" />
-                                        <stop stopColor="#8b5cf6" offset="50%" />
-                                        <stop stopColor="#3b82f6" offset="100%" />
+                                        <stop stopColor="#FFB147" offset="0%" />
+                                        <stop stopColor="#FF6C63" offset="50%" />
+                                        <stop stopColor="#B86ADF" offset="100%" />
                                     </linearGradient>
                                 </defs>
                             </svg>

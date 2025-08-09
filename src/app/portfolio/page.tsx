@@ -32,13 +32,13 @@ export default function HomePage() {
                     />
 
                     <h1
-                        className="text-3xl md:text-4xl font-extrabold leading-tight bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-transparent bg-clip-text animate-gradient"
+                        className="text-3xl md:text-4xl font-extrabold leading-tight bg-gradient-to-r from-amber-400 via-rose-400 to-violet-400 text-transparent bg-clip-text animate-gradient"
                     >
                         Yuri Dominyq Santos
                     </h1>
 
                     <h3
-                        className="text-lg md:text-xl font-semibold text-indigo-700 tracking-wide"
+                        className="text-lg md:text-xl font-semibold text-black tracking-wide"
                     >
                         Student Full Stack Developer based in Philippines
                     </h3>
@@ -77,10 +77,10 @@ export default function HomePage() {
                 >
                     <div className="grid grid-cols-2 gap-x-12 gap-y-4">
                         {[
-                            { icon: <Phone className="w-6 h-6 text-indigo-600" />, text: "+63 929 105 1576" },
+                            { icon: <Phone className="w-6 h-6 text-pink-600" />, text: "+63 929 105 1576" },
                             { icon: <Mail className="w-6 h-6 text-indigo-600" />, text: "yuri90378@gmail.com" },
-                            { icon: <BsPerson className="w-6 h-6 text-indigo-600" />, text: "23 yrs" },
-                            { icon: <MapPin className="w-6 h-6 text-indigo-600" />, text: "Bacolod City, Negros Occ., Philippines" },
+                            { icon: <BsPerson className="w-6 h-6 text-slate-600" />, text: "23 yrs" },
+                            { icon: <MapPin className="w-6 h-6 text-teal-600" />, text: "Bacolod City, Negros Occ., Philippines" },
                         ].map(({ icon, text }, i) =>
                             <div
                                 key={i}
@@ -95,7 +95,7 @@ export default function HomePage() {
                     </div>
 
                     <section className="hover:text-indigo-600 transition-colors cursor-pointer">
-                        <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-transparent bg-clip-text">Student Experience</h2>
+                        <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-amber-400 via-rose-400 to-violet-400 text-transparent bg-clip-text">Student Experience</h2>
 
                         <p className="text-gray-700 text-justify">
                             Hi I&apos;m Yuri Dominyq Santos - a student full stack developer dedicated to my work and passionate to deliver high-quality web experiences and high impact solutions
@@ -103,11 +103,11 @@ export default function HomePage() {
                     </section>
 
                     <section className="hover:text-indigo-600 transition-colors cursor-pointer">
-                        <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-transparent bg-clip-text">Good Insights</h2>
+                        <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-amber-400 via-rose-400 to-violet-400 text-transparent bg-clip-text">Good Insights</h2>
                         <p className="text-gray-700 text-justify">As a student, I&apos;m building the skills and knowledge to turn ideas into impactful and successful</p>
                     </section>
 
-                    <div className="flex item-start gap-4 rounded-xl p-6 mb-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 shadow-lg text-white border border-transparent animate-gradient">
+                    <div className="flex item-start gap-4 rounded-xl p-6 mb-4 bg-gradient-to-r from-amber-400 via-rose-400 to-violet-400 shadow-lg text-white border border-transparent animate-gradient">
                         <FaQuoteLeft className="text-3xl opacity-50" />
                         <p className="italic text-lg font-serif">Life is a game, play to win - Wise Man</p>
                     </div>

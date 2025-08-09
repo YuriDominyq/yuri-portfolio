@@ -3,70 +3,95 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
+import {useEffect, useRef, useState} from "react";
+import {FiGithub, FiHome, FiInstagram, FiLifeBuoy, FiLinkedin, FiMail} from "react-icons/fi";
+import {AiFillContacts, AiFillRead, AiFillWechatWork} from "react-icons/ai";
+import {MdTimeline} from "react-icons/md";
+import {GiSkills} from "react-icons/gi";
+import {FaFolderOpen} from "react-icons/fa";
 
-export default function Sidebar() {
+export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boolean, setIsExpanded: (val: boolean) => void}) {
 
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false)
+
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
     useEffect(() => {
         setMounted(true)
     }, [])
 
     const menuItems = [
-        { name: "HOME", path: "/portfolio" },
-        { name: "ABOUT", path: "/portfolio/about" },
-        { name: "SERVICES", path: "/services" },
-        { name: "WORKS", path: "/works" },
-        { name: "BLOGS", path: "/blogs" },
-        { name: "CONTACT", path: "/contact" },
+        { name: "HOME", path: "/portfolio", icon:<FiHome /> },
+        { name: "MY JOURNEY", path: "/portfolio/experience", icon: <MdTimeline /> },
+        {name: "EXPERTISE", path: "/portfolio/skills", icon: <GiSkills />},
+        { name: "WORKS", path: "/works", icon: <FaFolderOpen /> },
+        { name: "CONTACT", path: "/contact", icon: <FiMail /> },
     ]
+
+    const handleMouseEnter = () => {
+        if(timeoutRef.current){
+            clearTimeout(timeoutRef.current)
+        }
+
+        setIsExpanded(true)
+    }
+
+    const handleMouseLeave = () => {
+        timeoutRef.current = setTimeout(() => {
+            setIsExpanded(false)
+        }, 150)
+    }
 
     if (!mounted) return null
 
     return (
-        <aside className="w-64 h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-xl text-white flex flex-col">
-            <div className="p-6 text-3xl font-extrabold font-serif mb-6 select-none cursor-default">
+        <motion.aside
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            initial={{ width: 64}}
+            aria-expanded={isExpanded}
+            animate={{ width: isExpanded ? 240 : 83 }}
+            className="fixed top-0 left-0 min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-xl text-white flex flex-col overflow-hidden"
+            transition={{ type: "spring", stiffness: 200, damping: 30}}
+        >
+            <div className="p-6 text-3xl font-extrabold font-serif mb-6 select-none cursor-default flex items-center justify-center">
                 <Link href="/">
-                    YD
+                    <span className={`${isExpanded ? "block" : "hidden"}`}>YD</span>
+                    <span className={`${isExpanded ? "hidden" : "block"}`}>Y</span>
                 </Link>
             </div>
-            <nav className="p-4">
+
+            <nav className="flex-1 p-4">
                 <ul className="space-y-2">
-                    {menuItems.map(({ name, path }) => {
+                    {menuItems.map(({ name, path, icon }) => {
                         const isSelected = pathname === path
 
                         return (
                             <li
                                 key={path}
-                                className={`relative cursor-pointer px-3 py-2 rounded transition-colors duration-300 ${isSelected
-                                    ? ""
+                                className={`relative cursor-pointer px-4 py-2 rounded transition-colors duration-300 flex items-center gap-4 
+                                ${
+                                    isSelected
+                                    ? "bg-gray-700"
                                     : "hover:bg-gray-800 hover:text-white"
                                     }`}
                             >
                                 <Link
                                     href={path}
                                     aria-current={isSelected ? "page" : undefined}
-                                    className={`relative inline-block ${isSelected ? "font-bold" : ""}`}
-
+                                    className="flex items-center gap-4 w-full"
                                 >
-                                    {name}
+                                    <div className="text-white text-xl">{icon}</div>
 
-
-                                    {isSelected && (
-                                        <motion.span
-                                            aria-hidden="true"
-                                            className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 pointer-events-none"
-                                            style={{
-                                                transform: "translateY(-50%)"
-                                            }}
-                                            initial={{ scaleX: 0 }}
-                                            animate={{ scaleX: 1 }}
-                                            transition={{ duration: 0.5, ease: "easeOut" }}
-                                        />
-                                    )}
+                                    <motion.span
+                                        initial={{ opacity: 0, width: 0}}
+                                        animate={{ opacity: isExpanded ? 1 : 0, width: isExpanded ? "auto" : 0}}
+                                        className="whitespace-nowrap overflow-hidden"
+                                        transition={{ duration: 0.3, ease: "easeInOut"}}
+                                    >
+                                        {name}
+                                    </motion.span>
                                 </Link>
                             </li>
                         )
@@ -75,7 +100,13 @@ export default function Sidebar() {
             </nav>
 
             {/* Social Media */}
-            <div className="flex justify-center gap-6 p-6 border-t border-gray-700">
+            <motion.div
+                initial={{ width: "auto", opacity: 1}}
+                animate={{ width: isExpanded ? "auto" : 64, opacity: isExpanded ? 1 : 0}}
+                transition={{ duration: 0.3}}
+                style={{ overflow: "hidden"}}
+                className="flex justify-center gap-6 p-6 border-t border-gray-700"
+            >
                 <a
                     href="https://github.com/YuriDominyq"
                     target="_blank"
@@ -105,13 +136,19 @@ export default function Sidebar() {
                 >
                     <FiInstagram size={24} />
                 </a>
-            </div>
+            </motion.div>
 
-            <div className="p-4 text-center">
+            <motion.div
+                initial={{ opacity: 1, height: "auto"}}
+                animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? "auto" : 0}}
+                transition={{ duration: 0.3}}
+                style={{ overflow: "hidden"}}
+                className="p-4 text-center"
+            >
                 <h4 className="text-sm text-gray-400">
                     Copyright ©2025 Yuri Dominyq Santos. All right reserved.
                 </h4>
-            </div>
-        </aside>
+            </motion.div>
+        </motion.aside>
     )
 }
