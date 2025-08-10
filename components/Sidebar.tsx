@@ -3,14 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import {useEffect, useRef, useState} from "react";
-import {FiGithub, FiHome, FiInstagram, FiLifeBuoy, FiLinkedin, FiMail} from "react-icons/fi";
-import {AiFillContacts, AiFillRead, AiFillWechatWork} from "react-icons/ai";
-import {MdTimeline} from "react-icons/md";
-import {GiSkills} from "react-icons/gi";
-import {FaFolderOpen} from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { FiGithub, FiHome, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
+import { MdTimeline } from "react-icons/md";
+import { GiSkills } from "react-icons/gi";
+import { FaFolderOpen } from "react-icons/fa";
 
-export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boolean, setIsExpanded: (val: boolean) => void}) {
+export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boolean, setIsExpanded: (val: boolean) => void }) {
 
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false)
@@ -22,15 +21,15 @@ export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boole
     }, [])
 
     const menuItems = [
-        { name: "HOME", path: "/portfolio", icon:<FiHome /> },
+        { name: "HOME", path: "/portfolio", icon: <FiHome /> },
         { name: "MY JOURNEY", path: "/portfolio/experience", icon: <MdTimeline /> },
-        {name: "EXPERTISE", path: "/portfolio/skills", icon: <GiSkills />},
+        { name: "EXPERTISE", path: "/portfolio/skills", icon: <GiSkills /> },
         { name: "WORKS", path: "/works", icon: <FaFolderOpen /> },
         { name: "CONTACT", path: "/contact", icon: <FiMail /> },
     ]
 
     const handleMouseEnter = () => {
-        if(timeoutRef.current){
+        if (timeoutRef.current) {
             clearTimeout(timeoutRef.current)
         }
 
@@ -49,11 +48,11 @@ export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boole
         <motion.aside
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            initial={{ width: 64}}
+            initial={{ width: 64 }}
             aria-expanded={isExpanded}
             animate={{ width: isExpanded ? 240 : 83 }}
             className="fixed top-0 left-0 min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-xl text-white flex flex-col overflow-hidden"
-            transition={{ type: "spring", stiffness: 200, damping: 30}}
+            transition={{ type: "spring", stiffness: 200, damping: 30 }}
         >
             <div className="p-6 text-3xl font-extrabold font-serif mb-6 select-none cursor-default flex items-center justify-center">
                 <Link href="/">
@@ -71,10 +70,9 @@ export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boole
                             <li
                                 key={path}
                                 className={`relative cursor-pointer px-4 py-2 rounded transition-colors duration-300 flex items-center gap-4 
-                                ${
-                                    isSelected
-                                    ? "bg-gray-700"
-                                    : "hover:bg-gray-800 hover:text-white"
+                                ${isSelected
+                                        ? "bg-gray-700"
+                                        : "hover:bg-gray-800 hover:text-white"
                                     }`}
                             >
                                 <Link
@@ -85,10 +83,10 @@ export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boole
                                     <div className="text-white text-xl">{icon}</div>
 
                                     <motion.span
-                                        initial={{ opacity: 0, width: 0}}
-                                        animate={{ opacity: isExpanded ? 1 : 0, width: isExpanded ? "auto" : 0}}
+                                        initial={{ opacity: 0, width: 0 }}
+                                        animate={{ opacity: isExpanded ? 1 : 0, width: isExpanded ? "auto" : 0 }}
                                         className="whitespace-nowrap overflow-hidden"
-                                        transition={{ duration: 0.3, ease: "easeInOut"}}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
                                     >
                                         {name}
                                     </motion.span>
@@ -101,10 +99,10 @@ export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boole
 
             {/* Social Media */}
             <motion.div
-                initial={{ width: "auto", opacity: 1}}
-                animate={{ width: isExpanded ? "auto" : 64, opacity: isExpanded ? 1 : 0}}
-                transition={{ duration: 0.3}}
-                style={{ overflow: "hidden"}}
+                initial={{ width: "auto", opacity: 1 }}
+                animate={{ width: isExpanded ? "auto" : 64, opacity: isExpanded ? 1 : 0 }}
+                transition={{ duration: 0.3 }}
+                style={{ overflow: "hidden" }}
                 className="flex justify-center gap-6 p-6 border-t border-gray-700"
             >
                 <a
@@ -139,10 +137,10 @@ export default function Sidebar({ isExpanded, setIsExpanded}: {isExpanded: boole
             </motion.div>
 
             <motion.div
-                initial={{ opacity: 1, height: "auto"}}
-                animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? "auto" : 0}}
-                transition={{ duration: 0.3}}
-                style={{ overflow: "hidden"}}
+                initial={{ opacity: 1, height: "auto" }}
+                animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? "auto" : 0 }}
+                transition={{ duration: 0.3 }}
+                style={{ overflow: "hidden" }}
                 className="p-4 text-center"
             >
                 <h4 className="text-sm text-gray-400">
