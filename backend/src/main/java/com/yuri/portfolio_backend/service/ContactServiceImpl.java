@@ -28,18 +28,20 @@ public class ContactServiceImpl implements ContactService {
         contact.setEmail(email);
         contact.setMessage(message);
 
-        if(file != null && !file.isEmpty()){
+        if (file != null && !file.isEmpty()) {
             File uploadDir = new File(UPLOAD_DIR);
-            if(!uploadDir.exists()){
-                uploadDir.mkdir();
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
             }
 
-            String filePath = UPLOAD_DIR + file.getOriginalFilename();
+            String uniqueFileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+            String filePath = UPLOAD_DIR + uniqueFileName;
             Path path = Paths.get(filePath);
             Files.write(path, file.getBytes());
 
             contact.setFilePath(filePath);
         }
+
         return contactRepository.save(contact);
     }
 }
