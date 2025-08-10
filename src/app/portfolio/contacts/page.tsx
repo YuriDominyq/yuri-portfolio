@@ -53,7 +53,7 @@ export default function ContactsPage() {
         }
 
         try{
-            const response = await fetch("https://springboot-backend-portfolio.onrender.com/api/contacts", {
+            const response = await fetch("https://backend-portfolio-sxtz.onrender.com/api/contacts", {
                 method: "POST",
                 body: formData,
             })

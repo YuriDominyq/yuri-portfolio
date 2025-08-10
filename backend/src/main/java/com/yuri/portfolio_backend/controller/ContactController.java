@@ -39,7 +39,7 @@ public class ContactController {
                     .body("Error saving contact: " + e.getMessage());
         }
     }
-    )
+
     @PostMapping(value = "/json", consumes = {"application/json"})
     @CrossOrigin(origins = {"https://yuri-portfolio-delta.vercel.app", "http://localhost:3000"})
     public ResponseEntity<?> saveContactJson(@RequestBody Contact contact) {

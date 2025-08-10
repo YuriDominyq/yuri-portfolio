@@ -11,7 +11,7 @@ import org.springframework.core.Ordered;
 import java.util.Arrays;
 
 @Configuration
-public class CorsConfig {
+public class GlobalCorsConfig {
 
     @Bean
     public FilterRegistrationBean<CorsFilter> corsFilterRegistrationBean() {
