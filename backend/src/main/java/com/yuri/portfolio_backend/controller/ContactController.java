@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-@CrossOrigin(origins = {"http://localhost:3001", "https://yuri-portfolio-delta.vercel.app"})
+@CrossOrigin(origins = "http://localhost:3001")
 @RestController
 @RequestMapping("/api/contacts")
 public class ContactController {

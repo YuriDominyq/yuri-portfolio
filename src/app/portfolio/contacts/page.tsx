@@ -53,7 +53,7 @@ export default function ContactsPage() {
         }
 
         try{
-            const response = await fetch("https://yuri-portfolio-3l61.onrender.com/api/contacts", {
+            const response = await fetch("http://localhost:9090/api/contacts", {
                 method: "POST",
                 body: formData,
             })
