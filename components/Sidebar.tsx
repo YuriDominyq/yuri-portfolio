@@ -25,14 +25,13 @@ export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boo
         { name: "MY JOURNEY", path: "/portfolio/experience", icon: <MdTimeline /> },
         { name: "EXPERTISE", path: "/portfolio/skills", icon: <GiSkills /> },
         { name: "WORKS", path: "/works", icon: <FaFolderOpen /> },
-        { name: "CONTACT", path: "/contact", icon: <FiMail /> },
+        { name: "CONTACT", path: "/portfolio/contacts", icon: <FiMail /> },
     ]
 
     const handleMouseEnter = () => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current)
         }
-
         setIsExpanded(true)
     }
 
@@ -96,57 +95,6 @@ export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boo
                     })}
                 </ul>
             </nav>
-
-            {/* Social Media */}
-            <motion.div
-                initial={{ width: "auto", opacity: 1 }}
-                animate={{ width: isExpanded ? "auto" : 64, opacity: isExpanded ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                style={{ overflow: "hidden" }}
-                className="flex justify-center gap-6 p-6 border-t border-gray-700"
-            >
-                <a
-                    href="https://github.com/YuriDominyq"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                    aria-label="Github"
-                >
-                    <FiGithub size={24} />
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/in/yuri-santos-00264a379/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-blue-600 transition-colors duration-300"
-                    aria-label="LinkedIn"
-                >
-                    <FiLinkedin size={24} />
-                </a>
-
-                <a
-                    href="https://www.instagram.com/yurrdominyq/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-orange-600 transition-colors duration-300"
-                    aria-label="Instagram"
-                >
-                    <FiInstagram size={24} />
-                </a>
-            </motion.div>
-
-            <motion.div
-                initial={{ opacity: 1, height: "auto" }}
-                animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? "auto" : 0 }}
-                transition={{ duration: 0.3 }}
-                style={{ overflow: "hidden" }}
-                className="p-4 text-center"
-            >
-                <h4 className="text-sm text-gray-400">
-                    Copyright ©2025 Yuri Dominyq Santos. All right reserved.
-                </h4>
-            </motion.div>
         </motion.aside>
     )
 }

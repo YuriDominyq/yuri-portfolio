@@ -2,6 +2,7 @@
 
 import Sidebar from "../../../components/Sidebar";
 import {ReactNode, useState} from "react";
+import {ToastContainer} from "react-toastify";
 
 export default function LayoutPage({
     children,
@@ -17,6 +18,7 @@ export default function LayoutPage({
                 style={{ marginLeft: isExpanded ? 240 : 83}}
             >
                 {children}
+                <ToastContainer position="bottom-right" autoClose={3000} />
             </main>
         </div>
     );
