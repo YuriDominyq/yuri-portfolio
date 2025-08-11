@@ -24,7 +24,7 @@ export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boo
         { name: "HOME", path: "/portfolio", icon: <FiHome /> },
         { name: "MY JOURNEY", path: "/portfolio/experience", icon: <MdTimeline /> },
         { name: "EXPERTISE", path: "/portfolio/skills", icon: <GiSkills /> },
-        { name: "WORKS", path: "/works", icon: <FaFolderOpen /> },
+        { name: "WORKS", path: "/portfolio/work", icon: <FaFolderOpen /> },
         { name: "CONTACT", path: "/portfolio/contacts", icon: <FiMail /> },
     ]
 
