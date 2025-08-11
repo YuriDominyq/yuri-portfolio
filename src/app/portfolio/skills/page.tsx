@@ -1,6 +1,15 @@
 "use client";
 
-import {SiGithub, SiJavascript, SiPostgresql, SiReact, SiSupabase, SiTailwindcss} from "react-icons/si";
+import {
+    SiDocker,
+    SiGithub,
+    SiJavascript,
+    SiPostgresql,
+    SiReact, SiRender,
+    SiSupabase,
+    SiTailwindcss,
+    SiVercel
+} from "react-icons/si";
 import {FaJava} from "react-icons/fa6";
 import { motion } from "framer-motion";
 
@@ -17,8 +26,13 @@ const skillsByCategory = {
     "SQL": [
         {name: "PostgreSQL", icon: SiPostgresql}
     ],
-    "Version Control": [
-        {name: "Git/GitHub", icon: SiGithub}
+    "DevOps & Containerization": [
+        {name: "Git/GitHub", icon: SiGithub},
+        {name: "Docker", icon: SiDocker},
+    ],
+    "Cloud Hosting & Deployment": [
+        {name: "Vercel", icon: SiVercel},
+        {name: "Render", icon: SiRender},
     ]
 }
 
@@ -26,6 +40,16 @@ export default function SkillsPage(){
     return(
         <>
             <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-10 space-y-10">
+
+                <motion.p
+                    initial={{ opacity: 0}}
+                    animate={{ opacity: 1}}
+                    transition={{ duration: 0.5}}
+                    className="text-center text-gray max-w-xl text-lg"
+                >
+                    Currently learning and improving skills in frontend, backend, DevOps, and deployment.
+                </motion.p>
+
                 {Object.entries(skillsByCategory).map(([category, skills]) => (
                     <motion.div
                         key={category}
