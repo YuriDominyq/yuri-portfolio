@@ -4,17 +4,31 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { FiGithub, FiHome, FiInstagram, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiHome, FiMail } from "react-icons/fi";
 import { MdTimeline } from "react-icons/md";
 import { GiSkills } from "react-icons/gi";
 import { FaFolderOpen } from "react-icons/fa";
 
-export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boolean, setIsExpanded: (val: boolean) => void }) {
+export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boolean, setIsExpanded: (val: boolean) => void
+})
+{
+
+    const [isMobile, setIsMobile] = useState(false);
 
     const pathname = usePathname();
     const [mounted, setMounted] = useState(false)
 
     const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        }
+
+        handleResize()
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+    }, []);
 
     useEffect(() => {
         setMounted(true)
@@ -28,35 +42,65 @@ export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boo
         { name: "CONTACT", path: "/portfolio/contacts", icon: <FiMail /> },
     ]
 
+    const handleToggle = () => setIsExpanded(!isExpanded)
+
     const handleMouseEnter = () => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current)
+        if(!isMobile){
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current)
+            }
+            setIsExpanded(true)
         }
-        setIsExpanded(true)
     }
 
     const handleMouseLeave = () => {
-        timeoutRef.current = setTimeout(() => {
-            setIsExpanded(false)
-        }, 150)
+        if(!isMobile){
+            timeoutRef.current = setTimeout(() => {
+                setIsExpanded(false)
+            }, 150)
+        }
     }
 
     if (!mounted) return null
 
     return (
+        <>
+            {isMobile && (
+                <button
+                    className="fixed top-4 left-4 z-50 p-2 text-white bg-gray-900 rounded-md shadow-md cursor-pointer"
+                    onClick={handleToggle}
+                    aria-label="Toggle Sidebar"
+                    aria-expanded={isExpanded}
+                >
+                    <div className="space-y-1">
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                    </div>
+                </button>
+            )}
+
+            {isMobile && isExpanded && (
+                <div
+                    className="fixed inset-0 bg-black/20 z-50"
+                    onClick={() => setIsExpanded(false)}
+                />
+            )}
         <motion.aside
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            initial={{ width: 64 }}
+            initial={{ x: -240 }}
             aria-expanded={isExpanded}
-            animate={{ width: isExpanded ? 240 : 83 }}
-            className="fixed top-0 left-0 min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-xl text-white flex flex-col overflow-hidden"
+            animate={{ x: isMobile && !isExpanded ? -240 : 0 }}
+            className={`fixed top-0 left-0 min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 shadow-xl text-white flex flex-col overflow-hidden z-50 ${
+                isMobile
+                ? "w-60" : ""
+            }`}
             transition={{ type: "spring", stiffness: 200, damping: 30 }}
         >
             <div className="p-6 text-3xl font-extrabold font-serif mb-6 select-none cursor-default flex items-center justify-center">
                 <Link href="/">
-                    <span className={`${isExpanded ? "block" : "hidden"}`}>YD</span>
-                    <span className={`${isExpanded ? "hidden" : "block"}`}>Y</span>
+                    <span>YD</span>
                 </Link>
             </div>
 
@@ -96,5 +140,6 @@ export default function Sidebar({ isExpanded, setIsExpanded }: { isExpanded: boo
                 </ul>
             </nav>
         </motion.aside>
+        </>
     )
 }

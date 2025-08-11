@@ -82,7 +82,7 @@ export default function ContactsPage() {
         }
     }
     return(
-        <div className="flex min-h-screen items-center justify-center  bg-white p-4 sm:p-8">
+        <div className="flex min-h-screen items-center justify-center  bg-gradient-to-br from-gray-50 to-gray-100 p-3 sm:p-6 md:p-10">
 
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -92,11 +92,11 @@ export default function ContactsPage() {
             >
 
             {/* Contacts */}
-                <div className="md:w-1/2 space-y-4 text-gray-800 text-center md:text-left">
+                <div className="md:w-1/2 space-y-4 text-gray-800 text-center md:text-left mb-8 md:mb-0">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Contact</h2>
                     <h2 className="text-lg sm:text-xl">REACH OUT TO ME</h2>
 
-                    <p className="text-sm text-gray-600">Brgy. Estefania, Bacolod City, Negros Occidental, Philippines</p>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600">Brgy. Estefania, Bacolod City, Negros Occidental, Philippines</p>
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mt-4 break-words">+63 929 105 1576</h2>
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-10 break-words">yuri90378@gmail.com</h2>
 
@@ -138,7 +138,7 @@ export default function ContactsPage() {
                 </div>
 
             {/* FORM */}
-                <div className="md:w-1/2 space-y-6">
+                <div className="md:w-1/2 space-y-6 mb-8 md:mb-0">
                     <motion.form
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

@@ -7,7 +7,7 @@ export default function JourneyPage() {
     return (
         <div className="min-h-screen w-full bg-gradient-to-r  from-amber-400 via-rose-400 to-violet-400 bg-fixed flex justify-center items-center p-6">
             <div className="max-w-4xl space-y-8 text-white">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-24">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12 md:gap-24 text-center md:text-left">
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -16,7 +16,7 @@ export default function JourneyPage() {
                     >
                         <h1 className="text-4xl font-extrabold">My Journey & Experience</h1>
 
-                        <p className="mb-6 text-xl font-semibold text-justify">
+                        <p className="mb-6 text-xl font-semibold text-justify max-w-prose">
                             I am currently working on my capstone project, a Smart Jeepney Routing System designed to modernize and optimize jeep transportation routes in Bacolod City. My role involves developing frontend in React and Tailwind CSS, integrating Google Maps APIs, and
                             connecting the backend with Supabase for real-time tracking. This project aims to improve commuting efficiency for drivers and passengers.
                         </p>
@@ -57,7 +57,7 @@ export default function JourneyPage() {
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-col space-y-4 flex-1 border-b border-gray-100"
+                        className="flex flex-col space-y-4 flex-1 border-b border-gray-100 p-4 md:border-b-0 md:border-l md:border-gray-100"
                     >
                         <div className="flex justify-between items-center">
                             <h2 className="text-lg font-semibold">2025 - Present</h2>

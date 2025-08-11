@@ -15,7 +15,6 @@ export default function LayoutPage({
             <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
             <main
                 className="flex-1 bg-gray-100 overflow-y-auto transition-margin duration-300"
-                style={{ marginLeft: isExpanded ? 240 : 83}}
             >
                 {children}
                 <ToastContainer
