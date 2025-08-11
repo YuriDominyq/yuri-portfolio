@@ -40,7 +40,7 @@ export default function HomePage() {
                     <h3
                         className="text-lg md:text-xl font-semibold text-black tracking-wide"
                     >
-                        Student Full Stack Developer based in Philippines
+                        Student Full Stack Web Developer based in Philippines
                     </h3>
 
                     <motion.a
@@ -98,7 +98,7 @@ export default function HomePage() {
                         <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-amber-400 via-rose-400 to-violet-400 text-transparent bg-clip-text">Student Experience</h2>
 
                         <p className="text-gray-700 text-justify">
-                            Hi I&apos;m Yuri Dominyq Santos - a student full stack developer dedicated to my work and passionate to deliver high-quality web experiences and high impact solutions
+                            Hi I&apos;m Yuri Dominyq Santos - a student full stack web developer dedicated to my work and passionate to deliver high-quality web experiences and high impact solutions
                         </p>
                     </section>
 

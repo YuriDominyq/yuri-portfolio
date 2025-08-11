@@ -18,7 +18,24 @@ export default function LayoutPage({
                 style={{ marginLeft: isExpanded ? 240 : 83}}
             >
                 {children}
-                <ToastContainer position="bottom-right" autoClose={3000} />
+                <ToastContainer
+                    position="bottom-right"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                    toastStyle={{
+                        background: "linear-gradient(to right, #FFB147, #FF6C63, #B86ADF)",
+                        color: "#fff",
+                        borderRadius: "8px",
+                        fontWeight: "bold"
+                    }}
+                />
             </main>
         </div>
     );
