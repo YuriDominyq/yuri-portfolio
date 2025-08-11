@@ -62,8 +62,6 @@ export default function ContactsPage() {
                 throw new Error("Failed to send contact");
             }
 
-            const data = await response.json();
-
             toast.success("Your message has been sent")
 
             setForm({name: "", email: "", message: "", file: null});
