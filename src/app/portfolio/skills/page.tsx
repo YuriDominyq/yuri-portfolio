@@ -61,7 +61,7 @@ export default function SkillsPage(){
                         <h2 className="text-3xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-amber-400 via-rose-400 to-violet-400 text-transparent bg-clip-text animate-gradient">{category}</h2>
                         <div className="grid grid-cols-2 gap-6">
                             {skills.map(({name, icon: IconComponent}) => (
-                                <div key={name} className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-md transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-xl cursor-pointer">
+                                <div key={name} className="flex items-center gap-3 bg-white p-4 rounded-lg shadow-md transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-xl">
                                     <IconComponent size={24} style={{ fill: "url(#gradient)"}} />
                                     <span className="text-base font-semibold text-gray-800">{name}</span>
                                 </div>

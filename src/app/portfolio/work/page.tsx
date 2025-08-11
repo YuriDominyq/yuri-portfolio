@@ -39,7 +39,7 @@ export default function WorkPage() {
                         transition={{ duration: 0.6, delay: index * 0.1 + 0.3, ease: [0.43, 0.13, 0.23, 0.96] }}
                         className="p-6 border border-gray-100 rounded-2xl shadow-md hover:shadow-xl hover:scale-[1.03] hover:bg-gradient-to-r hover:from-blue-50 hover:to-white transition-transform duration-300 bg-white"
                     >
-                        <h3 className="text-2xl font-semibold text-gray-900 mb-2">{project.title}</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">{project.title}</h3>
                         <p className="text-gray-700">{project.description}</p>
 
                         <a
